@@ -1,0 +1,2 @@
+var urlBase = './';
+soundManager.url = './';
