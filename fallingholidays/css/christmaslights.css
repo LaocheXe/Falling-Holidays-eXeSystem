@@ -1,11 +1,11 @@
 /* XLSF 2007 */
-
+        /*
 body {
- background:#333 url(../../images/XMasLights/bg-strip-dark.png) 0px 0px;
+ background:#333 url(image/bg-strip-dark.png) 0px 0px;
  font-family:normal,"Century Gothic","Helvetica Neue Light","Helvetica Neue",georgia,"times new roman","Arial Rounded MT Bold",helvetica,verdana,tahoma,arial,"sans serif";
  font-size:75%;
  color:#666;
-}
+}   
 
 h1, h1 a {
  color:#999;
@@ -49,7 +49,7 @@ a {
 a:hover {
  background:#6699cc;
  color:#fff;
-}
+}   */
 
 #lights {
  position:absolute;
@@ -70,7 +70,7 @@ body.fast .xlsf-light {
 
 .xlsf-fragment {
  position:absolute;
- background:transparent url(image/bulbs-50x50-fragments.png) no-repeat 0px 0px;
+ background:transparent url(../images/lights/bulbs-50x50-fragments.png) no-repeat 0px 0px;
  width:50px;
  height:50px;
 }

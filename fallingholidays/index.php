@@ -1,5 +1,3 @@
 <?php
-
-exit;
-
+if (!defined('e107_INIT')) { exit; }
 ?>

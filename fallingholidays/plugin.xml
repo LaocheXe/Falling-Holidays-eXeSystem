@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="1.0" date="2015-11-06" compatibility="2.0" installRequired="true" >
+	<author name="LaocheXe" url="http://defiantz.org" />
+	<summary lan="LAN_PLUGIN_FHS_SUMMARY"></summary>
+	<description lan="LAN_PLUGIN_FHS_DESCRIPTION"></description>
+	<keywords>
+		<word>christmas</word>
+		<word>lights</word>
+		<word>snow</word>
+		<word>fun</word>
+	</keywords>
+	<category>misc</category>
+	<copyright>GNU General Public License v2</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="/images/icon_32.png" iconSmall="/images/icon_16.png" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='XMasLights'>1</pref>
+		<pref name='Snow3DActive'>1</pref>
+		<pref name='LightsSize'>50px</pref>
+	</pluginPrefs>
+</e107Plugin>
