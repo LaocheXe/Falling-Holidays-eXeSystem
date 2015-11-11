@@ -50,7 +50,7 @@ class fallingholidays_ui extends e_admin_ui
 {
 			
 		protected $pluginTitle		= LAN_PLUGIN_FHS_NAME;
-		protected $pluginName		= LAN_PLUGIN_FHS_NAME;
+		protected $pluginName		= 'fallingholidays';
 	//	protected $eventName		= 'FallingHolidays-'; // remove comment to enable event triggers in admin. 		
 		protected $table			= '';
 		protected $pid				= '';
