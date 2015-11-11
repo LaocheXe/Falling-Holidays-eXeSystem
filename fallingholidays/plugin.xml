@@ -7,6 +7,8 @@
 		<word>christmas</word>
 		<word>lights</word>
 		<word>snow</word>
+		<word>snowstorm</word>
+		<word>3dsnow</word>
 		<word>fun</word>
 	</keywords>
 	<category>misc</category>
@@ -15,8 +17,22 @@
 		<link url="admin_config.php" description="" icon="/images/icon_32.png" iconSmall="/images/icon_16.png" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
 	<pluginPrefs>
-		<pref name='XMasLights'>1</pref>
-		<pref name='Snow3DActive'>1</pref>
-		<pref name='LightsSize'>50px</pref>
+		<pref name='XMasLights'>0</pref>
+		<pref name='LightsSize'>pico</pref>
+		<pref name='LightsTop'>50px</pref>
+		<pref name='SnowActive'>0</pref>
+		<pref name='snowAutoStart'>0</pref>
+		<pref name='snowAnimationInterval'>33</pref>
+		<pref name='snowFlakesMax'>128</pref>
+		<pref name='snowFlakesMaxActive'>64</pref>
+		<pref name='snowFollowMouse'>0</pref>
+		<pref name='snowFreezeOnBlur'>0</pref>
+		<pref name='snowColor'>#FFFFFF</pref>
+		<pref name='snowCharacter'>*</pref>
+		<pref name='snowStick'>0</pref>
+		<pref name='snowMeltEffect'>0</pref>
+		<pref name='snowTwinkleEffect'>0</pref>
+		<pref name='snowPositionFixed'>0</pref>
+		<pref name='snowExcludeMobile'>0</pref>
 	</pluginPrefs>
 </e107Plugin>
