@@ -2,12 +2,192 @@
 if (!defined('e107_INIT')) { exit; }
 $pluginpref = e107::pref('fallingholidays');
   
-if((USER_AREA)) {
-	if($pluginpref['XMasLights'] == 1)  {     
-/*** css part, in original css file some parts are commented ***/
-	e107::css('fallingholidays','/css/christmaslights.css');  
-/* z-index = solving problem on news page */ 
-	$csscode = "/* Lights CSS */ #lights { top: ".$pluginpref['LightsTop']."; z-index: 999; }";  
+// Snow Storm on all window
+if($pluginpref['SnowActive'] == 1  && USER_AREA   && $pluginpref['snowType'] == 'snowstorm') {
+ 
+			if(vartrue($pluginpref['snowExcludeMobile']))   {$jscode .= " snowStorm.excludeMobile = true; "; }
+			else {$jscode .= " snowStorm.excludeMobile = false; "; };
+			if(vartrue($pluginpref['snowAutoStart']))   {$jscode .= " snowStorm.autoStart = true; "; }
+			else {$jscode .= " snowStorm.autoStart = false; "; };
+			if(vartrue($pluginpref['snowsStick']))   {$jscode .= " snowStorm.snowStick = true; "; }
+			else {$jscode .= " snowStorm.snowStick = false; "; };
+			if(vartrue($pluginpref['snowMeltEffect']))   {$jscode .= " snowStorm.useMeltEffect = true; "; }
+			else {$jscode .= " snowStorm.useMeltEffect = false; "; };
+			if(vartrue($pluginpref['snowTwinkleEffect']))   {$jscode .= " snowStorm.useTwinkleEffect = true; "; }
+			else {$jscode .= " snowStorm.useTwinkleEffect = false; "; };
+			if(vartrue($pluginpref['snowPositionFixed']))   {$jscode .= " snowStorm.usePositionFixed = true; "; }
+			else {$jscode .= " snowStorm.usePositionFixed = false; "; };
+			if(vartrue($pluginpref['snowFollowMouse']))   {$jscode .= " snowStorm.followMouse = true; "; }
+			else {$jscode .= " snowStorm.followMouse = false; "; };
+			if(vartrue($pluginpref['snowFreezeOnBlur']))   {$jscode .= " snowStorm.freezeOnBlur = true; "; }
+			else {$jscode .= " snowStorm.freezeOnBlur = false; "; };
+			
+			$jscode = "snowStorm.animationInterval = ".$pluginpref['snowAnimationInterval'].";
+                  snowStorm.flakesMax = ".$pluginpref['snowFlakesMax'].";
+                  snowStorm.flakesMaxActive = ".$pluginpref['snowFlakesMaxActive'].";
+                  snowStorm.snowColor = '".$pluginpref['snowColor']."';
+                  snowStorm.snowCharacter = '".$pluginpref['snowCharacter']."';
+                 ";
+			e107::js('fallingholidays','/js/snowstorm.js','jquery');
+ 			e107::js('inline', $jscode,'jquery');  
+} 
+
+
+// 3D Snow    
+if($pluginpref['SnowActive'] == 1   &&  USER_AREA     &&  $pluginpref['snowType'] == 'snowthreed') {
+  			e107::js('fallingholidays','/js/ThreeCanvas.js', 'jquery' );
+  			e107::js('fallingholidays','/js/Snow.js' );
+//  e107::js('Snow3D','/example/Snow-ind.js' );
+			$csscode = " 
+  canvas{
+      position:absolute;
+      left:0;
+      top:0;
+      z-index:-1;
+    }
+  .snow {
+    position:absolute;
+    z-index:0;
+    left:12px;
+    top:10px;
+    width: 1920px;
+    height: 1920px;
+ 
+   } ";   
+			e107::css('inline', $csscode );  
+			$urlBase  = e_PLUGIN.'fallingholidays'; 
+			$imageUrl = $urlBase.'/images/snow3d/ParticleSmoke.png';
+			$jscode  = " 
+var d = document.getElementById('#Div1');
+var SCREEN_WIDTH; // = 300;
+var SCREEN_HEIGHT; // = 300;
+
+var container;
+
+var particle;
+
+var camera;
+var scene;
+var renderer;
+
+var mouseX = 0;
+var mouseY = 0;
+
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
+var particles = [];
+var particleImage = new Image(); 
+particleImage.src = '$imageUrl';
+
+function init(id) {
+
+    d = document.getElementById(id); //'AAA'
+
+    SCREEN_WIDTH = d.offsetWidth;
+    SCREEN_HEIGHT = d.offsetHeight;
+
+
+
+    container = document.createElement('div');
+
+    document.body.appendChild(container);
+    d.appendChild(container);
+
+    camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
+    camera.position.z = 1000;
+
+    scene = new THREE.Scene();
+    scene.add(camera);
+
+    renderer = new THREE.CanvasRenderer();
+    renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+    var material = new THREE.ParticleBasicMaterial({ map: new THREE.Texture(particleImage) });
+
+    for (var i = 0; i < 500; i++) {
+
+        particle = new Particle3D(material);
+        particle.position.x = Math.random() * 2000 - 1000;
+        particle.position.y = Math.random() * 2000 - 1000;
+        particle.position.z = Math.random() * 2000 - 1000;
+        particle.scale.x = particle.scale.y = 1;
+        scene.add(particle);
+
+        particles.push(particle);
+    }
+
+    container.appendChild(renderer.domElement);
+
+
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    document.addEventListener('touchstart', onDocumentTouchStart, false);
+    document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+    setInterval(loop, 1000 / 60);
+
+}
+
+function onDocumentMouseMove(event) {
+
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+}
+
+function onDocumentTouchStart(event) {
+
+    if (event.touches.length == 1) {
+
+        event.preventDefault();
+
+        mouseX = event.touches[0].pageX - windowHalfX;
+        mouseY = event.touches[0].pageY - windowHalfY;
+    }
+}
+
+function onDocumentTouchMove(event) {
+
+    if (event.touches.length == 1) {
+
+        event.preventDefault();
+
+        mouseX = event.touches[0].pageX - windowHalfX;
+        mouseY = event.touches[0].pageY - windowHalfY;
+    }
+}
+
+//
+
+function loop() {
+
+    for (var i = 0; i < particles.length; i++) {
+
+        var particle = particles[i];
+        particle.updatePhysics();
+
+        with (particle.position) {
+            if (y < -1000) y += 2000;
+            if (x > 1000) x -= 2000;
+            else if (x < -1000) x += 2000;
+            if (z > 1000) z -= 2000;
+            else if (z < -1000) z += 2000;
+        }
+    }
+
+    camera.position.x += (mouseX - camera.position.x) * 0.05;
+    camera.position.y += (-mouseY - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
+    renderer.render(scene, camera);
+}
+  ";
+
+			e107::js('inline', $jscode);
+			$jscodeinit = " if ( $( '#Div1' ).length ) { init('Div1'); } ";  
+			e107::js('footer-inline', $jscodeinit );
+}
+
+if($pluginpref['XMasLights'] == 1  &&  USER_AREA) {     
+e107::css('fallingholidays','/css/christmaslights.css');
+$csscode = "/* Lights CSS */ #lights { top: ".$pluginpref['LightsTop']."; z-index: 999; }";  
 	e107::css('inline', $csscode,'jquery'); 
   
 	e107::js('fallingholidays','/js/animation-min.js','jquery');     
@@ -15,9 +195,9 @@ if((USER_AREA)) {
 
 /* because we need size as variable 
 e107::js('XMasLights','/christmaslights.js' ,'jquery'); */
-
+ 
 	$LightsSize = $pluginpref['LightsSize'];
-	$urlBase  = e_PLUGIN.'/fallingholidays/';
+	$urlBase  = e_PLUGIN.'fallingholidays/';
 	$jscode  ="              
 function myelement(sID) {
   return document.getElementById(sID); 
@@ -485,188 +665,8 @@ soundManager.setup({
   }
 });   ";
  
-	e107::js('inline', $jscode,'jquery');}
-}
-
-	if($pluginpref['SnowActive'] == 1) {
-	 	if($pluginpref['snowType'] == 'snowthreed') {
-  			e107::js('fallingholidays','/js/ThreeCanvas.js', 'jquery' );
-  			e107::js('fallingholidays','/js/Snow.js' );
-//  e107::js('Snow3D','/example/Snow-ind.js' );
-			$csscode = " 
-  canvas{
-      position:absolute;
-      left:0;
-      top:0;
-      z-index:-1;
-    }
-  .snow {
-    position:absolute;
-    z-index:0;
-    left:12px;
-    top:10px;
-    width: 1920px;
-    height: 1920px;
- 
-   } ";   
-			e107::css('inline', $csscode );  
-			$urlBase  = e_PLUGIN.'/fallingholidays/'; 
-			$imageUrl = $urlBase.'/images/snow3d/ParticleSmoke.png';
-			$jscode  =" 
-var d = document.getElementById('AAA');
-var SCREEN_WIDTH; // = 300;
-var SCREEN_HEIGHT; // = 300;
-
-var container;
-
-var particle;
-
-var camera;
-var scene;
-var renderer;
-
-var mouseX = 0;
-var mouseY = 0;
-
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
-
-var particles = [];
-var particleImage = new Image(); 
-particleImage.src = '$imageUrl';
-
-function init(id) {
-
-    d = document.getElementById(id); //'AAA'
-
-    SCREEN_WIDTH = d.offsetWidth;
-    SCREEN_HEIGHT = d.offsetHeight;
-
-
-
-    container = document.createElement('div');
-
-    document.body.appendChild(container);
-    d.appendChild(container);
-
-    camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
-    camera.position.z = 1000;
-
-    scene = new THREE.Scene();
-    scene.add(camera);
-
-    renderer = new THREE.CanvasRenderer();
-    renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-    var material = new THREE.ParticleBasicMaterial({ map: new THREE.Texture(particleImage) });
-
-    for (var i = 0; i < 500; i++) {
-
-        particle = new Particle3D(material);
-        particle.position.x = Math.random() * 2000 - 1000;
-        particle.position.y = Math.random() * 2000 - 1000;
-        particle.position.z = Math.random() * 2000 - 1000;
-        particle.scale.x = particle.scale.y = 1;
-        scene.add(particle);
-
-        particles.push(particle);
-    }
-
-    container.appendChild(renderer.domElement);
-
-
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-    document.addEventListener('touchstart', onDocumentTouchStart, false);
-    document.addEventListener('touchmove', onDocumentTouchMove, false);
-
-    setInterval(loop, 1000 / 60);
-
-}
-
-function onDocumentMouseMove(event) {
-
-    mouseX = event.clientX - windowHalfX;
-    mouseY = event.clientY - windowHalfY;
-}
-
-function onDocumentTouchStart(event) {
-
-    if (event.touches.length == 1) {
-
-        event.preventDefault();
-
-        mouseX = event.touches[0].pageX - windowHalfX;
-        mouseY = event.touches[0].pageY - windowHalfY;
-    }
-}
-
-function onDocumentTouchMove(event) {
-
-    if (event.touches.length == 1) {
-
-        event.preventDefault();
-
-        mouseX = event.touches[0].pageX - windowHalfX;
-        mouseY = event.touches[0].pageY - windowHalfY;
-    }
-}
-
-//
-
-function loop() {
-
-    for (var i = 0; i < particles.length; i++) {
-
-        var particle = particles[i];
-        particle.updatePhysics();
-
-        with (particle.position) {
-            if (y < -1000) y += 2000;
-            if (x > 1000) x -= 2000;
-            else if (x < -1000) x += 2000;
-            if (z > 1000) z -= 2000;
-            else if (z < -1000) z += 2000;
-        }
-    }
-
-    camera.position.x += (mouseX - camera.position.x) * 0.05;
-    camera.position.y += (-mouseY - camera.position.y) * 0.05;
-    camera.lookAt(scene.position);
-    renderer.render(scene, camera);
-}
-  ";
-
-			e107::js('inline', $jscode);
-			$jscodeinit = " if ( $( '#Div1' ).length ) { init('Div1'); } ";  
-			e107::js('footer-inline', $jscodeinit );
-		}
-		else if($pluginpref['snowType'] == 'snowstorm') {
-			if(vartrue($snow_settings['snowExcludeMobile']))   {$jscode .= " snowStorm.excludeMobile = true; "; }
-			else {$jscode .= " snowStorm.excludeMobile = false; "; };
-			if(vartrue($snow_settings['snowAutoStart']))   {$jscode .= " snowStorm.autoStart = true; "; }
-			else {$jscode .= " snowStorm.autoStart = false; "; };
-			if(vartrue($snow_settings['snowsStick']))   {$jscode .= " snowStorm.snowStick = true; "; }
-			else {$jscode .= " snowStorm.snowStick = false; "; };
-			if(vartrue($snow_settings['snowMeltEffect']))   {$jscode .= " snowStorm.useMeltEffect = true; "; }
-			else {$jscode .= " snowStorm.useMeltEffect = false; "; };
-			if(vartrue($snow_settings['snowTwinkleEffect']))   {$jscode .= " snowStorm.useTwinkleEffect = true; "; }
-			else {$jscode .= " snowStorm.useTwinkleEffect = false; "; };
-			if(vartrue($snow_settings['snowPositionFixed']))   {$jscode .= " snowStorm.usePositionFixed = true; "; }
-			else {$jscode .= " snowStorm.usePositionFixed = false; "; };
-			if(vartrue($snow_settings['snowFollowMouse']))   {$jscode .= " snowStorm.followMouse = true; "; }
-			else {$jscode .= " snowStorm.followMouse = false; "; };
-			if(vartrue($snow_settings['snowFreezeOnBlur']))   {$jscode .= " snowStorm.freezeOnBlur = true; "; }
-			else {$jscode .= " snowStorm.freezeOnBlur = false; "; };
-			
-			$jscode .= "snowStorm.animationInterval = ".$snow_settings['snowAnimationInterval'].";
-snowStorm.flakesMax = ".$snow_settings['snowFlakesMax'].";
-snowStorm.flakesMaxActive = ".$snow_settings['snowFlakesMaxActive'].";
-snowStorm.snowColor = '".$snow_settings['snowColor']."';
-snowStorm.snowCharacter = '".$snow_settings['snowCharacter']."';
- ";
-
-
-			e107::js('fallingholidays','/js/snowstorm.js','jquery');
- 			e107::js('inline', $jscode,'jquery'); 
-		}
-	}
+ e107::js('inline', $jscode,'jquery');       
+  }   
+       
+      
 ?>
