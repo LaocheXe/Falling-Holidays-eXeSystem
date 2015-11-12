@@ -486,7 +486,7 @@ soundManager.setup({
 });   ";
  
 	e107::js('inline', $jscode,'jquery');}
-}
+
 
 	if($pluginpref['SnowActive'] == 1) {
 	 	if($pluginpref['snowType'] == 'snowthreed') {
@@ -669,4 +669,5 @@ snowStorm.snowCharacter = '".$snow_settings['snowCharacter']."';
  			e107::js('inline', $jscode,'jquery'); 
 		}
 	}
+}
 ?>
