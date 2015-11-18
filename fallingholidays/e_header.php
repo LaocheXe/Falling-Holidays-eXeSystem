@@ -483,6 +483,7 @@ soundManager.setup({
   }
 });   ";
  
+<<<<<<< HEAD
  e107::js('inline', $jscode,'jquery');       
   }   
   
@@ -515,6 +516,9 @@ if(vartrue($pluginpref['SnowActive'])  && USER_AREA &&  $pluginpref['snowType'] 
 			e107::js('fallingholidays','/js/snowstorm.js','jquery');
  			e107::js('footer-inline', $jscode,'jquery');  
 } 
+=======
+	e107::js('inline', $jscode,'jquery');}
+>>>>>>> origin/master
 
 
 // 3D Snow    
@@ -668,7 +672,43 @@ function loop() {
 			e107::js('inline', $jscode);
 			$jscodeinit = " if ( $( '#Div1' ).length ) { init3DSnow('Div1'); } ";  
 			e107::js('footer-inline', $jscodeinit );
+<<<<<<< HEAD
 }   
  
 ?>
                                                        
+=======
+		}
+		else if($pluginpref['snowType'] == 'snowstorm') {
+			if(vartrue($snow_settings['snowExcludeMobile']))   {$jscode .= " snowStorm.excludeMobile = true; "; }
+			else {$jscode .= " snowStorm.excludeMobile = false; "; };
+			if(vartrue($snow_settings['snowAutoStart']))   {$jscode .= " snowStorm.autoStart = true; "; }
+			else {$jscode .= " snowStorm.autoStart = false; "; };
+			if(vartrue($snow_settings['snowsStick']))   {$jscode .= " snowStorm.snowStick = true; "; }
+			else {$jscode .= " snowStorm.snowStick = false; "; };
+			if(vartrue($snow_settings['snowMeltEffect']))   {$jscode .= " snowStorm.useMeltEffect = true; "; }
+			else {$jscode .= " snowStorm.useMeltEffect = false; "; };
+			if(vartrue($snow_settings['snowTwinkleEffect']))   {$jscode .= " snowStorm.useTwinkleEffect = true; "; }
+			else {$jscode .= " snowStorm.useTwinkleEffect = false; "; };
+			if(vartrue($snow_settings['snowPositionFixed']))   {$jscode .= " snowStorm.usePositionFixed = true; "; }
+			else {$jscode .= " snowStorm.usePositionFixed = false; "; };
+			if(vartrue($snow_settings['snowFollowMouse']))   {$jscode .= " snowStorm.followMouse = true; "; }
+			else {$jscode .= " snowStorm.followMouse = false; "; };
+			if(vartrue($snow_settings['snowFreezeOnBlur']))   {$jscode .= " snowStorm.freezeOnBlur = true; "; }
+			else {$jscode .= " snowStorm.freezeOnBlur = false; "; };
+			
+			$jscode .= "snowStorm.animationInterval = ".$snow_settings['snowAnimationInterval'].";
+snowStorm.flakesMax = ".$snow_settings['snowFlakesMax'].";
+snowStorm.flakesMaxActive = ".$snow_settings['snowFlakesMaxActive'].";
+snowStorm.snowColor = '".$snow_settings['snowColor']."';
+snowStorm.snowCharacter = '".$snow_settings['snowCharacter']."';
+ ";
+
+
+			e107::js('fallingholidays','/js/snowstorm.js','jquery');
+ 			e107::js('inline', $jscode,'jquery'); 
+		}
+	}
+}
+?>
+>>>>>>> origin/master
