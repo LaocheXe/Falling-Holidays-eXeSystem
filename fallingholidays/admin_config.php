@@ -70,7 +70,7 @@ class fallingholidays_ui extends e_admin_ui
 		protected $fieldpref = array();
 		
 
-		protected $preftabs        = array(LAN_FHS_GENERAL, LAN_FHS_LIGHTS, LAN_FHS_SNOW );
+		protected $preftabs        = array(LAN_FHS_GENERAL, LAN_FHS_LIGHTS, LAN_FHS_ST_SSTORM );
 		protected $prefs = array(
 		'XMasLights'		=> array('title'=> LAN_FHS_XMAS_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_XMAS_ACTIVTION_H),
 		'LightsSize'		=> array('title'=> LAN_FHS_LSIZE, 'tab'=>1, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
@@ -80,12 +80,12 @@ class fallingholidays_ui extends e_admin_ui
                                               'medium'=> LAN_FHS_LS_MEDIUM,                                              
                                               'large'=> LAN_FHS_LS_LARGE)
                                               ),'data' => 'str', 'help'=> LAN_FHS_LSIZE_H),
-      'LightsTop'		=> array('title'=> LAN_FHS_PADDING, 'tab'=>1, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_PADDING_H),
-	  'SnowActive'		=> array('title'=> LAN_FHS_SNOW_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SNOW_ACTIVTION_H),
-	  'snowType'		=> array('title'=> LAN_FHS_SNOW_TYPE, 'tab'=>2, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
+    'LightsTop'		=> array('title'=> LAN_FHS_PADDING, 'tab'=>1, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_PADDING_H),
+	  'SnowActive'		=> array('title'=> LAN_FHS_SNOW_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SNOW_ACTIVTION_H),    
+	  'snowType'		=> array('title'=> LAN_FHS_SNOW_TYPE, 'tab'=>0, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
                                               'snowthreed'=> LAN_FHS_ST_SNOW3D,
                                               'snowstorm'=> LAN_FHS_ST_SSTORM)
-                                              ),'data' => 'str', 'help'=> LAN_FHS_ST_H),
+                                              ),'data' => 'str', 'help'=> LAN_FHS_ST_H),   
 	  'snowAutoStart'		=> array('title'=> LAN_FHS_SAUTO_START, 'tab'=>2, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SAUTO_START_H),
 	  'snowAnimationInterval'		=> array('title'=> LAN_FHS_SANIMATION, 'tab'=>2, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_SANIMATION_H),
 	  'snowFlakesMax'		=> array('title'=> LAN_FHS_SF_MAX, 'tab'=>2, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_SF_MAX_H),
