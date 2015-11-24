@@ -518,7 +518,7 @@ if(vartrue($pluginpref['SnowActive'])  && USER_AREA &&  $pluginpref['snowType'] 
 
 
 // 3D Snow    
-if(vartrue($pluginpref['3DSnowActive'])   &&  USER_AREA  && $pluginpref['snowType'] == 'snowthreed')   {
+if(vartrue($pluginpref['SnowActive'])   &&  USER_AREA  && $pluginpref['snowType'] == 'snowthreed')   {
  
   			e107::js('fallingholidays','/js/ThreeCanvas.js', 'jquery' );
   			e107::js('fallingholidays','/js/Snow.js' );
