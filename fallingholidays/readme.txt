@@ -1,4 +1,4 @@
-/*************************** README *******************************************/ NOTE: This might be out dated
+/*************************** README *******************************************/
 
 
 To get this plugin work in your theme you need to insert this there:
