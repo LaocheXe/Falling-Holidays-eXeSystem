@@ -4,7 +4,7 @@
 #lights {
  position:absolute;
  left:0px;
- top:0px;
+
  width:100%;
  height:100px;
  overflow:hidden;
@@ -28,7 +28,7 @@ body.fast .xlsf-light {
 .xlsf-fragment-box {
  position:absolute;
  left:0px;
- top:0px;
+ top:50px;
  width:50px;
  height:50px;
  *width:100%;
@@ -46,6 +46,15 @@ body.fast .xlsf-light {
  opacity:1;
  z-index:999;
  display:none;
+}
+
+#christmas-lights {
+  background:transparent url(../images/lights/christmas-lights.png);
+  height: 36px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 /*

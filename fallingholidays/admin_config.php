@@ -9,8 +9,8 @@ if (!getperms('P'))
 	exit;
 }
 
-// Added Language URL - eXe
-include_lan(e_PLUGIN.'fallingholidays/languages/'.e_LANGUAGE.'.php');
+// Added Language File - eXe
+e107::lan('fallingholidays', true, true);
 
 class fallingholidays_adminArea extends e_admin_dispatcher
 {
@@ -73,6 +73,10 @@ class fallingholidays_ui extends e_admin_ui
 		protected $preftabs        = array(LAN_FHS_GENERAL, LAN_FHS_LIGHTS, LAN_FHS_ST_SSTORM );
 		protected $prefs = array(
 		'XMasLights'		=> array('title'=> LAN_FHS_XMAS_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_XMAS_ACTIVTION_H),
+		'xmasLightsType'	=> array('title'=> LAN_FHS_LIGHT_TYPE, 'tab'=>0, 'type'=>'dropdown', 'writeParms' =>array('optArray'=>array(
+											  'breakable'=> LAN_FHS_XL_BREAK,
+											  'normal'=> LAN_FHS_XL_NORMAL)
+											  ),'data' => 'str', 'help'=> LAN_FHS_XL_H),
 		'LightsSize'		=> array('title'=> LAN_FHS_LSIZE, 'tab'=>1, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
                                               'pico'=> LAN_FHS_LS_NORMAL,
                                               'tiny'=> LAN_FHS_LS_TINY,

@@ -1,4 +1,5 @@
-/*************************** README *******************************************/
+/*************************** README *******************************************/ NOTE: This might be out dated
+
 
 To get this plugin work in your theme you need to insert this there:
 

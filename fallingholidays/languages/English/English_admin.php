@@ -16,6 +16,10 @@ define("LAN_FHS_SNOW_ACTIVTION", "Snow:");
 define("LAN_FHS_SNOW_ACTIVTION_H", "Enable or Disable the snow");
 // Admin - Lights Options
 define("LAN_FHS_LIGHTS", "Lights");
+define("LAN_FHS_LIGHT_TYPE", "Light Type");
+define("LAN_FHS_XL_BREAK", "Breaking Bulbs");
+define("LAN_FHS_XL_NORMAL", "Normal Lights");
+define("LAN_FHS_XL_H", "Select the type of Xmas lights to use");
 define("LAN_FHS_LSIZE", "Lights Size");
 define("LAN_FHS_LS_NORMAL", "Normal");
 define("LAN_FHS_LS_TINY", "Tiny");
@@ -64,4 +68,12 @@ define("LAN_PLUGIN_FHS_NAME", 		"Falling Holidays");
 define("LAN_PLUGIN_FHS_SUMMARY", "This has Smashable Christmas Lights and 3D Snow falling.");
 define("LAN_PLUGIN_FHS_DESCRIPTION", "Adapted from XLSF 2007 as originally used on schillmania.com. Snowflakes are moving in 3D manner and if you move mouse on left snowflakes will rotate to left. Same thing function for other directions and was made by JSSnow.");
 define("LAN_PLUGIN_FHS_BATCH",  		"Create Falling Holidays eXeSystem Item");
+
+// Beer Pay
+define("LAN_FHS_ADMIN_HELP_01", "Help & Support");
+define("LAN_FHS_ADMIN_HELP_02", "If you think this plugin is useful and saves you a lot of work, then star it on Github! Thank you!");
+define("LAN_FHS_ADMIN_HELP_03", "Please feel free to report any bug found. Pull requests and issues are more than welcome!");
+define("LAN_FHS_ADMIN_HELP_04", "Issue");
+define("LAN_FHS_ADMIN_HELP_05", "Star");
+define("LAN_FHS_ADMIN_HELP_06", "Support on Beerpay");
 ?>

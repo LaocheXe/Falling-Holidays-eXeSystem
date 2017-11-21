@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="1.0" date="2015-11-06" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="1.5" date="2017-11-25" compatibility="2.0" installRequired="true" >
 	<author name="LaocheXe" url="http://defiantz.org" />
+	<contributors>
+    	<contributor name="Jimmi08" url="https://github.com/Jimmi08" />
+    </contributors>
 	<summary lan="LAN_PLUGIN_FHS_SUMMARY"></summary>
 	<description lan="LAN_PLUGIN_FHS_DESCRIPTION"></description>
 	<keywords>

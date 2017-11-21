@@ -2,9 +2,13 @@
 if (!defined('e107_INIT')) { exit; }
 $pluginpref = e107::pref('fallingholidays');
   
-if(vartrue($pluginpref['XMasLights'])  &&  USER_AREA) {     
+if(vartrue($pluginpref['XMasLights'])  &&  USER_AREA) { 
 e107::css('fallingholidays','/css/christmaslights.css');
-$csscode = "/* Lights CSS */ #lights { top: ".$pluginpref['LightsTop']."; z-index: 999; }";  
+if($pluginpref['xmasLightsType'] == 'breakable')
+{    
+
+$csscode = "/* Lights CSS */ #lights { top: ".$pluginpref['LightsTop']."; z-index: 999; }";
+  
 	e107::css('inline', $csscode,'jquery'); 
   
 	e107::js('fallingholidays','/js/animation-min.js','jquery');     
@@ -483,8 +487,17 @@ soundManager.setup({
   }
 });   ";
  
- e107::js('inline', $jscode,'jquery');       
-  }   
+ e107::js('inline', $jscode,'jquery');
+}
+elseif($pluginpref['xmasLightsType'] == 'normal')
+{
+	e107::js('fallingholidays','/js/chirstmas_lights.js','jquery'); 
+	
+	$text = '<div id="christmas-lights"></div>';
+	
+	return $text;
+}
+}   
   
 // Snow Storm on all window
 if(vartrue($pluginpref['SnowActive'])  && USER_AREA &&  $pluginpref['snowType'] == 'snowstorm')  { 
