@@ -147,16 +147,15 @@ class fallingholidays_ui extends e_admin_ui
 			// do something		
 		}		
 		
-			
-	/*	
-		// optional - a custom page.  
-		public function customPage()
+		// left-panel help menu area. 
+		public function renderHelp()
 		{
-			$text = 'Hello World!';
-			return $text;
-			
+			$caption = LAN_HELP;
+			$text = 'Make sure you add the menus to the site so the lights, and snow display correctly';
+
+			return array('caption'=>$caption,'text'=> $text);
+
 		}
-	*/
 			
 }
 				
