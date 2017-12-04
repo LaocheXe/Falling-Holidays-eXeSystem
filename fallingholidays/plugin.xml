@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="1.5" date="2017-12-4" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="1.5" date="2017-12-04" compatibility="2.0" installRequired="true" >
 	<author name="LaocheXe" url="http://defiantz.org" />
 	<contributors>
     	<contributor name="Jimmi08" url="https://github.com/Jimmi08" />
@@ -18,7 +18,7 @@
 	<category>misc</category>
 	<copyright>GNU General Public License v2</copyright>
 	<adminLinks>
-		<link url="admin_config.php" description="" icon="/images/icon_32.png" iconSmall="/images/icon_16.png" primary="true" >LAN_CONFIGURE</link>
+		<link url="admin_config.php" description="" icon="/images/icon_32.png" iconSmall="/images/icon_16.png" icon128="/images/icon_128.png" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
 	<pluginPrefs>
 		<pref name='XMasLights'>0</pref>
