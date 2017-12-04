@@ -4,8 +4,8 @@
 	<contributors>
     	<contributor name="Jimmi08" url="https://github.com/Jimmi08" />
     </contributors>
-	<summary lan="LAN_PLUGIN_FHS_SUMMARY"></summary>
-	<description lan="LAN_PLUGIN_FHS_DESCRIPTION"></description>
+	<summary lan="LAN_PLUGIN_FHS_SUMMARY">This has Smashable Christmas Lights and 3D Snow falling.</summary>
+	<description lan="LAN_PLUGIN_FHS_DESCRIPTION">Adapted from XLSF 2007 as originally used on schillmania.com. Snowflakes are moving in 3D manner and if you move mouse on left snowflakes will rotate to left. Same thing function for other directions and was made by JSSnow.</description>
 	<keywords>
 		<word>christmas</word>
 		<word>lights</word>
