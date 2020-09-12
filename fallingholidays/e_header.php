@@ -2,7 +2,7 @@
 if (!defined('e107_INIT')) { exit; }
 $pluginpref = e107::pref('fallingholidays');
   
-if(vartrue($pluginpref['XMasLights'])  &&  USER_AREA) { 
+if(vartrue($pluginpref['XMasLights'])) { 
 e107::css('fallingholidays','/css/christmaslights.css');
 if($pluginpref['xmasLightsType'] == 'breakable')
 {    
