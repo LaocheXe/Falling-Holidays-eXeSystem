@@ -111,13 +111,7 @@ class fallingholidays_ui extends e_admin_ui
 	
 		}
 
-		
-		// ------- Customize Create --------
-		
-		public function beforeCreate($new_data)
-		{
-			return $new_data;
-		}
+ 
 	
 		public function afterCreate($new_data, $old_data, $id)
 		{
