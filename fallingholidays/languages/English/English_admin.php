@@ -34,6 +34,7 @@ define("LAN_FHS_SNOW", "Snow");
 define("LAN_FHS_SNOW_TYPE", "Snow Type");
 define("LAN_FHS_ST_SNOW3D", "3D Snow");
 define("LAN_FHS_ST_SSTORM", "Snow Storm");
+define("LAN_FHS_ST_CSSNOW", "CSSnow");
 define("LAN_FHS_ST_H", "Select between the different snow types");
 define("LAN_FHS_SANIMATION", "Animation Interval");
 define("LAN_FHS_SANIMATION_H", "The animation interval for the snow. Higher the number the movement of the snow becomes slower, lower the number then the snow becomes faster");

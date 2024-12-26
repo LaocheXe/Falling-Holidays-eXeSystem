@@ -88,7 +88,8 @@ class fallingholidays_ui extends e_admin_ui
 	  'SnowActive'		=> array('title'=> LAN_FHS_SNOW_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SNOW_ACTIVTION_H),    
 	  'snowType'		=> array('title'=> LAN_FHS_SNOW_TYPE, 'tab'=>0, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
                                               'snowthreed'=> LAN_FHS_ST_SNOW3D,
-                                              'snowstorm'=> LAN_FHS_ST_SSTORM)
+                                              'snowstorm'=> LAN_FHS_ST_SSTORM,
+											  'cssnow'=> LAN_FHS_ST_CSSNOW)
                                               ),'data' => 'str', 'help'=> LAN_FHS_ST_H),   
 	  'snowAutoStart'		=> array('title'=> LAN_FHS_SAUTO_START, 'tab'=>2, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SAUTO_START_H),
 	  'snowAnimationInterval'		=> array('title'=> LAN_FHS_SANIMATION, 'tab'=>2, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_SANIMATION_H),

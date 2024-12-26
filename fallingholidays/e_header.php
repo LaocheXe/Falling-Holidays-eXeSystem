@@ -527,7 +527,12 @@ if(vartrue($pluginpref['SnowActive'])  && USER_AREA &&  $pluginpref['snowType'] 
                  ";
 			e107::js('fallingholidays','/js/snowstorm.js','jquery');
  			e107::js('footer-inline', $jscode,'jquery');  
-} 
+}
+
+// CSSnow Snow
+if(vartrue($pluginpref['SnowActive'])   &&  USER_AREA  && $pluginpref['snowType'] == 'cssnow')   {
+	e107::css('fallingholidays', '/css/CSSnow.css', 'jquery');
+}
 
 
 // 3D Snow    
@@ -684,4 +689,3 @@ function loop() {
 }   
  
 ?>
-                                                       

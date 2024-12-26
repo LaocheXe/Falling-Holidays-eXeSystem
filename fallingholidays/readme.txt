@@ -13,3 +13,10 @@ Second way:  put content of  XMasLights_menu.php in your theme.php
   <!-- lights go here -->
  </div>
 <div id='Div1' class='snow'></div>
+
+-------------------
+To use CSSnow 
+
+<div class="cssnow"></div>
+<script>for(let i=0;i<9;i++){
+  document.querySelector('.cssnow').innerHTML += '<span>';}</script>

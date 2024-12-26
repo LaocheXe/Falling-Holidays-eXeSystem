@@ -78,17 +78,6 @@ class fallingholidays_help
 		$content .= '<a ' . implode(" ", $star) . '>' . LAN_FHS_ADMIN_HELP_05 . '</a>';
 		$content .= '</p>';
 
-		$beerImage = '<img src="https://beerpay.io/LaocheXe/Falling-Holidays-eXeSystem/badge.svg" />';
-		$beerWishImage = '<img src="https://beerpay.io/LaocheXe/Falling-Holidays-eXeSystem/make-wish.svg" />';
-
-		$content .= '<p class="text-center">' . LAN_FHS_ADMIN_HELP_06 . '</p>';
-		$content .= '<p class="text-center">';
-		$content .= '<a href="https://beerpay.io/LaocheXe/Falling-Holidays-eXeSystem">' . $beerImage . '</a>';
-		$content .= '</p>';
-		$content .= '<p class="text-center">';
-		$content .= '<a href="https://beerpay.io/LaocheXe/Falling-Holidays-eXeSystem">' . $beerWishImage . '</a>';
-		$content .= '</p>';
-
 		$block = array(
 			'title' => LAN_FHS_ADMIN_HELP_01,
 			'body'  => $content,
