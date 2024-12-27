@@ -10,12 +10,8 @@
 		<word>christmas</word>
 		<word>lights</word>
 		<word>snow</word>
-		<word>snowstorm</word>
-		<word>3dsnow</word>
-		<word>fun</word>
-		<word>halliday</word>
+		<word>holiday</word>
 		<word>fireworks</word>
-		<word>newyear</word>
 	</keywords>
 	<category>misc</category>
 	<copyright>GNU General Public License v2</copyright>
@@ -55,7 +51,7 @@
 		<pref name='fmnyfwSpeedMax'>8</pref>
 		<pref name='fmnyfwRadiusMin'>2</pref>
 		<pref name='fmnyfwRadiusMax'>6</pref>
-		<pref name='fmnyfwInterval'>200</pref>
+		<pref name='fmnyfwInterval'>750</pref>
 		<pref name='cssZIndex'>9999</pref>
 	</pluginPrefs>
 </e107Plugin>
