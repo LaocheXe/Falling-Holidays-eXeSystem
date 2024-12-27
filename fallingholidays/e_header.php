@@ -534,6 +534,34 @@ if(vartrue($pluginpref['SnowActive'])   &&  USER_AREA  && $pluginpref['snowType'
 	e107::css('fallingholidays', '/css/CSSnow.css', 'jquery');
 }
 
+// Festive Magic: Christmas Snowfall
+if(vartrue($pluginpref['SnowActive'])   &&  USER_AREA  && $pluginpref['snowType'] == 'fmcsnowfall')   {
+	$jscode = '';
+	$jscode .= "christmasOverlaySnow.enable({
+				snowflakeCount: ".$pluginpref['fmcsfCount'].",
+				snowflakeColor: '".$pluginpref['fmcsfColor']."',
+				zIndex: 9999
+				});";
+	e107::js('fallingholidays','/js/ChristmasOverlay.js','jquery');
+	e107::js('footer-inline', $jscode,'jquery');
+}
+
+// Festive Magic: Fireworks
+if(vartrue($pluginpref['FireWorksActive'])   &&  USER_AREA  && $pluginpref['fireworksType'] == 'fmnyfireworks')   {
+	$jscode = '';
+	$jscode .= "const fireworks = new FireworksOverlay({
+				colors: ['".$pluginpref['fmnyfwColor1']."', '".$pluginpref['fmnyfwColor2']."', '".$pluginpref['fmnyfwColor3']."', '".$pluginpref['fmnyfwColor4']."', '".$pluginpref['fmnyfwColor5']."', '".$pluginpref['fmnyfwColor6']."'],
+				particleCount: ".$pluginpref['fmnyfwParticleCount'].",
+				gravity: ".$pluginpref['fmnyfwGravity'].",
+				speed: { min: ".$pluginpref['fmnyfwSpeedMin'].", max: ".$pluginpref['fmnyfwSpeedMax']." },
+				radius: { min: ".$pluginpref['fmnyfwRadiusMin'].", max: ".$pluginpref['fmnyfwRadiusMax']." },
+				interval: ".$pluginpref['fmnyfwInterval'].",
+				zIndex: 9999,
+				});
+				fireworks.startAnimation();";
+	e107::js('fallingholidays','/js/NewYearsOverlay.js','jquery');
+	e107::js('footer-inline', $jscode,'jquery');
+}
 
 // 3D Snow    
 if(vartrue($pluginpref['SnowActive'])   &&  USER_AREA  && $pluginpref['snowType'] == 'snowthreed')   {

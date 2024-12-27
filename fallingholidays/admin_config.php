@@ -70,7 +70,7 @@ class fallingholidays_ui extends e_admin_ui
 		protected $fieldpref = array();
 		
 
-		protected $preftabs        = array(LAN_FHS_GENERAL, LAN_FHS_LIGHTS, LAN_FHS_ST_SSTORM );
+		protected $preftabs        = array(LAN_FHS_GENERAL, LAN_FHS_LIGHTS, LAN_FHS_ST_SSTORM, LAN_FHS_FMCSF, LAN_FHS_FMNYFW );
 		protected $prefs = array(
 		'XMasLights'		=> array('title'=> LAN_FHS_XMAS_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_XMAS_ACTIVTION_H),
 		'xmasLightsType'	=> array('title'=> LAN_FHS_LIGHT_TYPE, 'tab'=>0, 'type'=>'dropdown', 'writeParms' =>array('optArray'=>array(
@@ -89,8 +89,13 @@ class fallingholidays_ui extends e_admin_ui
 	  'snowType'		=> array('title'=> LAN_FHS_SNOW_TYPE, 'tab'=>0, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
                                               'snowthreed'=> LAN_FHS_ST_SNOW3D,
                                               'snowstorm'=> LAN_FHS_ST_SSTORM,
-											  'cssnow'=> LAN_FHS_ST_CSSNOW)
-                                              ),'data' => 'str', 'help'=> LAN_FHS_ST_H),   
+											  'cssnow'=> LAN_FHS_ST_CSSNOW,
+											  'fmcsnowfall'=> LAN_FHS_ST_FMCSNOWFALL)
+                                              ),'data' => 'str', 'help'=> LAN_FHS_ST_H),
+	  'FireWorksActive'		=> array('title'=> LAN_FHS_FIREWORKS_ACTIVTION, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_FIREWORKS_ACTIVTION_H),    
+	  'fireworksType'		=> array('title'=> LAN_FHS_FIREWORKS_TYPE, 'tab'=>0, 'type'=>'dropdown', 'writeParms'  =>array('optArray'=>array(
+											  'fmnyfireworks'=> LAN_FHS_FWT_FMNYFIREWORKS)
+                                              ),'data' => 'str', 'help'=> LAN_FHS_FWT_H),
 	  'snowAutoStart'		=> array('title'=> LAN_FHS_SAUTO_START, 'tab'=>2, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SAUTO_START_H),
 	  'snowAnimationInterval'		=> array('title'=> LAN_FHS_SANIMATION, 'tab'=>2, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_SANIMATION_H),
 	  'snowFlakesMax'		=> array('title'=> LAN_FHS_SF_MAX, 'tab'=>2, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_SF_MAX_H),
@@ -104,6 +109,21 @@ class fallingholidays_ui extends e_admin_ui
 	  'snowTwinkleEffect'		=> array('title'=> LAN_FHS_STWINK, 'tab'=>2, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_STWINK_H),
 	  'snowPositionFixed'		=> array('title'=> LAN_FHS_SPOSFIX, 'tab'=>2, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SPOSFIX_H),
 	  'snowExcludeMobile'		=> array('title'=> LAN_FHS_SEMOBILE, 'tab'=>2, 'type'=>'boolean', 'data' => 'str', 'help'=> LAN_FHS_SEMOBILE_H),
+	  'fmcsfCount'		=> array('title'=> LAN_FHS_FMCSF_COUNT, 'tab'=>3, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMCSF_COUNT_H),
+	  'fmcsfColor'		=> array('title'=> LAN_FHS_FMCSF_COLOR, 'tab'=>3, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMCSF_COLOR_H),
+	  'fmnyfwParticleCount'		=> array('title'=> LAN_FHS_FMNYFW_PCOUNT, 'tab'=>4, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_PCOUNT_H),
+	  'fmnyfwGravity'		=> array('title'=> LAN_FHS_FMNYFW_GRAVITY, 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_GRAVITY_H),
+	  'fmnyfwSpeedMin'		=> array('title'=> LAN_FHS_FMNYFW_SPEEDMIN, 'tab'=>4, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_SPEEDMIN_H),
+	  'fmnyfwSpeedMax'		=> array('title'=> LAN_FHS_FMNYFW_SPEEDMAX, 'tab'=>4, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_SPEEDMAX_H),
+	  'fmnyfwRadiusMin'		=> array('title'=> LAN_FHS_FMNYFW_RADIUSMIN, 'tab'=>4, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_RADIUSMIN_H),
+	  'fmnyfwRadiusMax'		=> array('title'=> LAN_FHS_FMNYFW_RADIUSMAX, 'tab'=>4, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_RADIUSMAX_H),
+	  'fmnyfwInterval'		=> array('title'=> LAN_FHS_FMNYFW_INTERVAL, 'tab'=>4, 'type'=>'number', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_INTERVAL_H),
+	  'fmnyfwColor1'		=> array('title'=> LAN_FHS_FMNYFW_COLOR.' 1', 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_COLOR_H),
+	  'fmnyfwColor2'		=> array('title'=> LAN_FHS_FMNYFW_COLOR.' 2', 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_COLOR_H),
+	  'fmnyfwColor3'		=> array('title'=> LAN_FHS_FMNYFW_COLOR.' 3', 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_COLOR_H),
+	  'fmnyfwColor4'		=> array('title'=> LAN_FHS_FMNYFW_COLOR.' 4', 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_COLOR_H),
+	  'fmnyfwColor5'		=> array('title'=> LAN_FHS_FMNYFW_COLOR.' 5', 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_COLOR_H),
+	  'fmnyfwColor6'		=> array('title'=> LAN_FHS_FMNYFW_COLOR.' 6', 'tab'=>4, 'type'=>'text', 'data' => 'str', 'help'=> LAN_FHS_FMNYFW_COLOR_H),
 		); 
 	
 		public function init()

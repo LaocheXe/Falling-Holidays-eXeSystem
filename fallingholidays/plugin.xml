@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="1.5" date="2017-12-04" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Falling Holidays" lan="LAN_PLUGIN_FHS_NAME" version="2.0" date="2024-12-26" compatibility="2.0" installRequired="true" >
 	<author name="LaocheXe" url="http://defiantz.org" />
 	<contributors>
     	<contributor name="Jimmi08" url="https://github.com/Jimmi08" />
@@ -14,6 +14,8 @@
 		<word>3dsnow</word>
 		<word>fun</word>
 		<word>halliday</word>
+		<word>fireworks</word>
+		<word>newyear</word>
 	</keywords>
 	<category>misc</category>
 	<copyright>GNU General Public License v2</copyright>
@@ -38,5 +40,22 @@
 		<pref name='snowTwinkleEffect'>0</pref>
 		<pref name='snowPositionFixed'>0</pref>
 		<pref name='snowExcludeMobile'>0</pref>
+		<pref name='fmcsfCount'>50</pref>
+		<pref name='fmcsfColor'>White</pref>
+		<pref name='FireWorksActive'>0</pref>
+		<pref name='fmnyfwColor1'>#FF5733</pref>
+		<pref name='fmnyfwColor2'>#FFC300</pref>
+		<pref name='fmnyfwColor3'>#DAF7A6</pref>
+		<pref name='fmnyfwColor4'>#C70039</pref>
+		<pref name='fmnyfwColor5'>#900C3F</pref>
+		<pref name='fmnyfwColor6'>#581845</pref>
+		<pref name='fmnyfwParticleCount'>100</pref>
+		<pref name='fmnyfwGravity'>0.05</pref>
+		<pref name='fmnyfwSpeedMin'>2</pref>
+		<pref name='fmnyfwSpeedMax'>8</pref>
+		<pref name='fmnyfwRadiusMin'>2</pref>
+		<pref name='fmnyfwRadiusMax'>6</pref>
+		<pref name='fmnyfwInterval'>200</pref>
+		<pref name='cssZIndex'>9999</pref>
 	</pluginPrefs>
 </e107Plugin>
